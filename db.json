@@ -1,0 +1,29 @@
+{
+  "user": [
+    {
+      "id": "c767",
+      "username": "abc",
+      "password": "12345",
+      "full_name": "abc",
+      "email": "abc@gmail.com",
+      "phone": "545454",
+      "country": "india",
+      "address": "delhi",
+      "gender": "Male"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "Hello World",
+      "content": "Welcome to the JSON Server!"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "postId": 1,
+      "comment": "Great post!"
+    }
+  ]
+}
