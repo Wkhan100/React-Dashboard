@@ -14,6 +14,8 @@ import UserList from './component/userCrud/UserList';
 import UserInfo from './component/User/UserInfo';
 import Register from './Register';
 import Login from './Login';
+import FormA from './component/FormA';
+import Parent from './component/Parent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,7 +29,9 @@ root.render(
     <Route path="/count" element={<Count />} />
     <Route path="/search" element={<SearchBox />} />
     <Route path="/user" element={<User />} />
-    <Route path="/count" element={<Count />} />
+    <Route path="/count" element={<Count />} />  
+    <Route path="/forma" element={<FormA />} />
+    <Route path="/parent" element={<Parent />} />
     <Route path="/userform" element={<UserForm />} />
     <Route path="/userlist" element={<UserList />} />
     <Route path="/userinfo" element={<UserInfo />} />

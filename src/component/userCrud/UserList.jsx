@@ -13,7 +13,7 @@ const UserList = () => {
           throw new Error('Failed to fetch users');
         }
         const value = await response.json();
-        console.log(value);
+        console.log("value", value);
         // setUsers(value.data); // Assuming API response has a 'data' field containing users
         setUsers(value); // Assuming API response 
       } catch (error) {
@@ -26,15 +26,36 @@ const UserList = () => {
 
   return (
     <div className='App mt-10'>
-      <h2>User List</h2>
-      <ul>
-        {users.map(user => (
+      <h2>User List with json server api data!</h2>
+        {/* {users.map(user => (
           <li key={user.id}>
-            {/* {user.first_name} {user.last_name} */}
             {user.full_name} {user.email}
             </li>
-        ))}
-      </ul>
+        ))} */}
+
+<table className='border w-100'>
+                <thead className='border'>
+                    <tr className='border'>
+                        <th className='border'>UserName</th>
+                        <th className='border'>Country</th>
+                        <th className='border'>Email</th>
+                        <th className='border'>Action</th>
+                    </tr>
+                </thead>
+                <tbody className='border'>
+                    {users.map((user) => (
+                        <tr className='border' key={user.id}>
+                            <td className='border'>{user.username}</td>
+                            <td className='border'>{user.country}</td>
+                            <td className='border'>{user.email}</td>
+                            <td className='border'>
+                                <button >Edit</button>
+                                <button >Delete</button>
+                            </td>
+                          </tr>
+                      ))}
+                </tbody>
+        </table>                 
     </div>
   );
 };

@@ -25,6 +25,12 @@ function Header() {
                 <Link className="nav-link" to="userform">user form</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="forma">FormA</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="parent">Parent</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="userlist">user Jserver</Link>
               </li>
               <li className="nav-item">

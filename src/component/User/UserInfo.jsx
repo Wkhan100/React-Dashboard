@@ -4,12 +4,14 @@ import React, { useState, useEffect } from 'react';
 
 function UserInfo() {
     const [users, setUsers] = useState([]);
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState(
+        {
         first_name: '',
         last_name: '',
         email: '',
         avatar: ''
-    });
+    }
+);
     const [isEditing, setIsEditing] = useState(false);
     const [currentUserId, setCurrentUserId] = useState(null);
 
@@ -67,9 +69,11 @@ function UserInfo() {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch('https://reqres.in/api/users');
+                const url= 'https://reqres.in/api/users';
+                const response = await fetch(url);
+                console.log('promis data', response);
                 const res = await response.json();
-                console.log('resdata-', res);
+                console.log('resdata-', res.data);
                 setUsers(res.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -168,7 +172,7 @@ function UserInfo() {
             <table className='border w-100'>
                 <thead className='border'>
                     <tr className='border'>
-                        <th className='border'>ID</th>
+                        {/* <th className='border'>ID</th> */}
                         <th className='border'>First Name</th>
                         <th className='border'>Last Name</th>
                         <th className='border'>Email</th>
@@ -179,7 +183,7 @@ function UserInfo() {
                 <tbody className='border'>
                     {users.map((user) => (
                         <tr className='border' key={user.id}>
-                            <td className='border'>{user.id}</td>
+                            {/* <td className='border'>{user.id}</td> */}
                             <td className='border'>{user.first_name}</td>
                             <td className='border'>{user.last_name}</td>
                             <td className='border'>{user.email}</td>

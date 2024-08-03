@@ -42,7 +42,6 @@ function Register(){
         e.preventDefault();
         let body =JSON.stringify(formData);
         console.log('form-body', body);
-
         fetch("http://localhost:8000/user", {
             method: "POST",
             headers: { 'content-type': 'application/json'},
@@ -56,6 +55,7 @@ function Register(){
     }
     return (
         <div>
+            <h1>Register User then login with same credential!</h1>
             <form onSubmit={handleSubmit}>
                 <div className='row'>
                 <div className="col-6 mb-3">

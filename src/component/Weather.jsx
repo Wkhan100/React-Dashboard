@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import FormA from './FormA';
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -42,7 +41,6 @@ const Weather = () => {
       <p style={{color:'blue'}}>Current location: {weatherData.location.name}</p>
 
       <p>calling formA</p>
-      <FormA/>
       </div>
   );
 };

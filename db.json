@@ -1,16 +1,6 @@
 {
   "user": [
-    {
-      "id": "c767",
-      "username": "abc",
-      "password": "12345",
-      "full_name": "abc",
-      "email": "abc@gmail.com",
-      "phone": "545454",
-      "country": "india",
-      "address": "delhi",
-      "gender": "Male"
-    }
+  
   ],
   "posts": [
     {
