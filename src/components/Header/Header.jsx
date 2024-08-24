@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 function Header() {
- 
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // alert('Button clicked!');
+    localStorage.removeItem('userId');
+    window.location.reload();
+    navigate('/'); 
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -47,7 +54,7 @@ function Header() {
             <form className="d-flex">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>
-              <button className="btn btn-outline-primary" type="button" >Logout</button>
+              <button className="btn btn-outline-primary" type="button" onClick={handleClick} >Logout</button>
 
             </form>
           </div>

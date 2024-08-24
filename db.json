@@ -1,5 +1,17 @@
 {
-  "user": [],
+  "user": [
+    {
+      "id": "c7c1",
+      "username": "abc",
+      "password": "12345",
+      "full_name": "abc",
+      "email": "abc@gmail.com",
+      "phone": "343535454",
+      "country": "India",
+      "address": "Delhi",
+      "gender": "Male"
+    }
+  ],
   "posts": [
     {
       "id": "a1a8",
