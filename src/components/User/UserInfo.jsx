@@ -86,7 +86,7 @@ function UserInfo() {
         setFormData({
             first_name: user.first_name,
             last_name: user.last_name,
-            email: user.email, // Adjust this based on the actual API response for job
+            email: user.email, 
             avatar: user.avatar
         });
         setIsEditing(true);
@@ -172,22 +172,18 @@ function UserInfo() {
             <table className='border w-100'>
                 <thead className='border'>
                     <tr className='border'>
-                        {/* <th className='border'>ID</th> */}
                         <th className='border'>First Name</th>
                         <th className='border'>Last Name</th>
                         <th className='border'>Email</th>
-                        {/* <th className='border'>Picture</th> */}
                         <th className='border'>Action</th>
                     </tr>
                 </thead>
                 <tbody className='border'>
                     {users.map((user) => (
                         <tr className='border' key={user.id}>
-                            {/* <td className='border'>{user.id}</td> */}
                             <td className='border'>{user.first_name}</td>
                             <td className='border'>{user.last_name}</td>
                             <td className='border'>{user.email}</td>
-                            {/* <td className='border'>{user.email}</td> */}
                             <td className='border'>
                                 <button onClick={() => handleEdit(user)}>Edit</button>
                                 <button onClick={() => handleDelete(user.id)}>Delete</button>

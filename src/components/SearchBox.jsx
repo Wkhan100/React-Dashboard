@@ -38,11 +38,13 @@ import { useState } from 'react';
 function SearchBox() {
     const API_URL = "https://api.weatherapi.com/v1/current.json";
     const apiKey = 'd6771bfc7e41414a99b124041242906';
+    // const [weatherData, setWeatherData] = useState(null);
 
     let getWeatherInfo = async () => {
         // let response = await fetch(`${API_URL}?q=${city}&appid=${apiKey}`);
         const response = await fetch(`${API_URL}?key=${apiKey}&q=${encodeURIComponent(city)}`);
         let jsonResponse = await response.json();
+        // setWeatherData(jsonResponse.current);
         console.log(jsonResponse);
     };
     let [city, setCity] = useState("");
@@ -65,6 +67,12 @@ function SearchBox() {
                 <br></br>
                 <button className="btn btn-primary">Search</button>
             </form>
+
+            {/* <p style={{color:'blue'}}>Current humidity: {weatherData.current} °C</p>
+      <p style={{color:'red'}}>Current temperature: {weatherData.current} °C</p>
+      <p style={{color:'Green'}}>Current wind: {weatherData.current}</p>
+      <p style={{color:'red'}}>Current pressure: {weatherData.current} °C</p>
+      <p style={{color:'blue'}}>Current location: {weatherData.location}</p> */}
         </div>
 
     );

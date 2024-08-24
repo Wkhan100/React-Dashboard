@@ -2,20 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
-import Header from './component/Header/Header';
-import Footer from './component/Footer/Footer';
-import Home from './component/Home/Home';
-import Weather from './component/Weather';
-import Count from './component/Count';
-import SearchBox from './component/SearchBox';
-import User from './component/User/User';
-import UserForm from './component/userCrud/UserForm';
-import UserList from './component/userCrud/UserList';
-import UserInfo from './component/User/UserInfo';
-import Register from './Register';
-import Login from './Login';
-import FormA from './component/FormA';
-import Parent from './component/Parent';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import Weather from './components/Weather';
+import Count from './components/Count';
+import SearchBox from './components/SearchBox';
+import User from './components/User/User';
+import UserForm from './components/userCrud/UserForm';
+import UserList from './components/userCrud/UserList';
+import UserInfo from './components/User/UserInfo';
+import Register from './components/Register';
+import Login from './components/Login';
+import FormA from './components/FormA';
+import Parent from './components/Parent';
+import Blog from './components/Blog';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,6 +32,7 @@ root.render(
     <Route path="/user" element={<User />} />
     <Route path="/count" element={<Count />} />  
     <Route path="/forma" element={<FormA />} />
+    <Route path="/blog" element={<Blog />} />
     <Route path="/parent" element={<Parent />} />
     <Route path="/userform" element={<UserForm />} />
     <Route path="/userlist" element={<UserList />} />

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NewCrud from "./User/NewCrud";
 
 
 
@@ -40,7 +41,7 @@ export default function Count() {
           </div>
         )}
       </div>
-
+        <NewCrud/>
     </>
   )
 }

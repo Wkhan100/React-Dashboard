@@ -1,12 +1,29 @@
 {
-  "user": [
-  
-  ],
+  "user": [],
   "posts": [
     {
-      "id": "1",
-      "title": "Hello World",
-      "content": "Welcome to the JSON Server!"
+      "id": "a1a8",
+      "bloggerName": "Charlie",
+      "email": "charlie@gmail.com",
+      "message": "Good luck!!!!!!!!"
+    },
+    {
+      "id": "a883",
+      "bloggerName": "cccc",
+      "email": "",
+      "message": ""
+    },
+    {
+      "id": "3b27",
+      "bloggerName": "cccc",
+      "email": "abc@gmail.com",
+      "message": "Good luck!!!!!!!!"
+    },
+    {
+      "id": "15c0",
+      "bloggerName": "hhhghggh",
+      "email": "gfdggf",
+      "message": "fdgdgf"
     }
   ],
   "comments": [
