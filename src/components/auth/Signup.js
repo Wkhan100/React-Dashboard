@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../AuthContext";
 
@@ -14,8 +14,8 @@ const Signup = () => {
     gender: ''
   });
   const { setCurrentUser } = useAuth();
-
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -23,49 +23,38 @@ const Signup = () => {
       [name]: value
     });
   };
-  // const handleChange = (e) => {
-  //     const { name, value, checked } = e.target;
-  //     if (name === 'gender') {
-  //         setFormData(prevFormData => ({
-  //             ...prevFormData,
-  //             gender: {
-  //                 ...prevFormData.gender,
-  //                 [value]: checked
-  //             }
-  //         }));
-  //     } else {
-  //         setFormData({
-  //             ...formData,
-  //             [name]: value
-  //         });
-  //     }
-  // };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let body = JSON.stringify(formData);
-    console.log('form-body', body);
-    fetch("http://localhost:8000/user", {
-      method: "POST",
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(formData)
-    }).then((res) => {
-      console.log('Success:', res);
-      // localStorage.setItem('userId', res.id);
-      // setCurrentUser(res.id);
-      // window.location.href = '/';
-      navigate('./login');
-    }).catch((error) => {
-      console.log(error);
-    })
-  }
+
+    try {
+      const response = await fetch("http://localhost:8000/user", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      localStorage.setItem('userId', result.id);
+      setCurrentUser(result.id);
+      navigate('/login');
+    } catch (error) {
+      console.error('Error:', error.message);
+      alert("An error occurred. Please try again.");
+    }
+  };
+
   return (
     <div>
-      <h1>Register User then login with same credential!</h1>
+      <h1>Register User then login with same credentials!</h1>
       <form onSubmit={handleSubmit}>
         <div className='row'>
           <div className="col-6 mb-3">
-            <label htmlFor="username" className="form-label">username</label>
+            <label htmlFor="username" className="form-label">Username</label>
             <input
               type="text"
               className="form-control"
@@ -74,30 +63,33 @@ const Signup = () => {
               placeholder="Enter username"
               value={formData.username}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-6 mb-3">
             <label htmlFor="password" className="form-label">Password</label>
             <input
-              type="text"
+              type="password"
               className="form-control"
               name="password"
               id="password"
               placeholder="Enter password"
               value={formData.password}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-6 mb-3">
-            <label htmlFor="Full name" className="form-label">Full Name</label>
+            <label htmlFor="full_name" className="form-label">Full Name</label>
             <input
               type="text"
               className="form-control"
               name="full_name"
               id="full_name"
-              placeholder="Enter First Name"
+              placeholder="Enter full name"
               value={formData.full_name}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -109,21 +101,23 @@ const Signup = () => {
               className="form-control"
               name="email"
               id="email"
-              placeholder="Enter Email"
+              placeholder="Enter email"
               value={formData.email}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-6 mb-3">
             <label htmlFor="phone" className="form-label">Phone</label>
             <input
-              type="number"
+              type="text"
               className="form-control"
               name="phone"
               id="phone"
-              placeholder="Enter phone"
+              placeholder="Enter phone number"
               value={formData.phone}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-6 mb-3">
@@ -136,10 +130,11 @@ const Signup = () => {
               placeholder="Enter country"
               value={formData.country}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-6 mb-3">
-            <label htmlFor="address" className="form-label">address</label>
+            <label htmlFor="address" className="form-label">Address</label>
             <input
               type="text"
               className="form-control"
@@ -148,6 +143,7 @@ const Signup = () => {
               placeholder="Enter address"
               value={formData.address}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-6 mb-3">
@@ -177,38 +173,10 @@ const Signup = () => {
               <label className="form-check-label" htmlFor="female">Female</label>
             </div>
           </div>
-          {/* <div className="col-6 mb-3">
-<label htmlFor="gender" className="form-label">Gender</label>
-<div className="form-check form-check-inline">
-  <input
-      className="form-check-input"
-      type="checkbox"
-      id="male"
-      name="gender"
-      value="Male"
-      checked={formData.gender['Male'] || false}
-      onChange={handleChange}
-  />
-  <label className="form-check-label" htmlFor="male">Male</label>
-</div>
-<div className="form-check form-check-inline">
-  <input
-      className="form-check-input"
-      type="checkbox"
-      id="female"
-      name="gender"
-      value="Female"
-      checked={formData.gender['Female'] || false}
-      onChange={handleChange}
-  />
-  <label className="form-check-label" htmlFor="female">Female</label>
-</div>
-</div> */}
-
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
         <span>
-          Already have an account? <Link to={"/login"}>Login</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </span>
       </form>
     </div>

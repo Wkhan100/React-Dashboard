@@ -10,6 +10,17 @@
       "country": "India",
       "address": "Delhi",
       "gender": "Male"
+    },
+    {
+      "id": "965e",
+      "username": "Bret",
+      "password": "12345",
+      "full_name": "fadas",
+      "email": "john@gmail.com",
+      "phone": "121321323",
+      "country": "india",
+      "address": "delhi",
+      "gender": "Female"
     }
   ],
   "posts": [
