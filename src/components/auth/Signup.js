@@ -6,12 +6,7 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    full_name: '',
-    email: '',
-    phone: '',
-    country: '',
-    address: '',
-    gender: ''
+    email: ''
   });
   const { setCurrentUser } = useAuth();
   const navigate = useNavigate();
@@ -28,7 +23,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8000/user", {
+      const response = await fetch("http://localhost:3002/signup", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -79,19 +74,7 @@ const Signup = () => {
               required
             />
           </div>
-          <div className="col-6 mb-3">
-            <label htmlFor="full_name" className="form-label">Full Name</label>
-            <input
-              type="text"
-              className="form-control"
-              name="full_name"
-              id="full_name"
-              placeholder="Enter full name"
-              value={formData.full_name}
-              onChange={handleChange}
-              required
-            />
-          </div>
+         
         </div>
         <div className='row'>
           <div className="col-6 mb-3">
@@ -107,72 +90,7 @@ const Signup = () => {
               required
             />
           </div>
-          <div className="col-6 mb-3">
-            <label htmlFor="phone" className="form-label">Phone</label>
-            <input
-              type="text"
-              className="form-control"
-              name="phone"
-              id="phone"
-              placeholder="Enter phone number"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="col-6 mb-3">
-            <label htmlFor="country" className="form-label">Country</label>
-            <input
-              type="text"
-              className="form-control"
-              name="country"
-              id="country"
-              placeholder="Enter country"
-              value={formData.country}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="col-6 mb-3">
-            <label htmlFor="address" className="form-label">Address</label>
-            <input
-              type="text"
-              className="form-control"
-              name="address"
-              id="address"
-              placeholder="Enter address"
-              value={formData.address}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="col-6 mb-3">
-            <label htmlFor="gender" className="form-label">Gender</label>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="radio"
-                id="male"
-                name="gender"
-                value="Male"
-                checked={formData.gender === 'Male'}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="male">Male</label>
-            </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="radio"
-                id="female"
-                name="gender"
-                value="Female"
-                checked={formData.gender === 'Female'}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor="female">Female</label>
-            </div>
-          </div>
+         
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
         <span>
@@ -184,3 +102,84 @@ const Signup = () => {
 };
 
 export default Signup;
+
+
+// <div className="col-6 mb-3">
+// <label htmlFor="phone" className="form-label">Phone</label>
+// <input
+//   type="text"
+//   className="form-control"
+//   name="phone"
+//   id="phone"
+//   placeholder="Enter phone number"
+//   value={formData.phone}
+//   onChange={handleChange}
+//   required
+// />
+// </div>
+// <div className="col-6 mb-3">
+// <label htmlFor="full_name" className="form-label">Full Name</label>
+// <input
+//   type="text"
+//   className="form-control"
+//   name="full_name"
+//   id="full_name"
+//   placeholder="Enter full name"
+//   value={formData.full_name}
+//   onChange={handleChange}
+//   required
+// />
+// </div>
+// <div className="col-6 mb-3">
+// <label htmlFor="country" className="form-label">Country</label>
+// <input
+//   type="text"
+//   className="form-control"
+//   name="country"
+//   id="country"
+//   placeholder="Enter country"
+//   value={formData.country}
+//   onChange={handleChange}
+//   required
+// />
+// </div>
+// <div className="col-6 mb-3">
+// <label htmlFor="address" className="form-label">Address</label>
+// <input
+//   type="text"
+//   className="form-control"
+//   name="address"
+//   id="address"
+//   placeholder="Enter address"
+//   value={formData.address}
+//   onChange={handleChange}
+//   required
+// />
+// </div>
+// <div className="col-6 mb-3">
+// <label htmlFor="gender" className="form-label">Gender</label>
+// <div className="form-check">
+//   <input
+//     className="form-check-input"
+//     type="radio"
+//     id="male"
+//     name="gender"
+//     value="Male"
+//     checked={formData.gender === 'Male'}
+//     onChange={handleChange}
+//   />
+//   <label className="form-check-label" htmlFor="male">Male</label>
+// </div>
+// <div className="form-check">
+//   <input
+//     className="form-check-input"
+//     type="radio"
+//     id="female"
+//     name="gender"
+//     value="Female"
+//     checked={formData.gender === 'Female'}
+//     onChange={handleChange}
+//   />
+//   <label className="form-check-label" htmlFor="female">Female</label>
+// </div>
+// </div>

@@ -4,7 +4,6 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 const App = ({ isLoggedIn }) => {
-    // alert(isLoggedIn);
   return (
     <div>
       {isLoggedIn && <Header />}

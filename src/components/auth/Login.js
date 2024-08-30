@@ -22,14 +22,18 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8000/user');
+      const response = await fetch('http://localhost:3002/login', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
-      const users = await response.json();
-      const user = users.find(user => user.email === formData.email && user.password === formData.password);
+      const user = await response.json();
+      // const user = users.find(user => user.email === formData.email && user.password === formData.password);
 
       if (user) {
         localStorage.setItem('userId', user.id);
